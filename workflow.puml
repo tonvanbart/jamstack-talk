@@ -1,0 +1,16 @@
+@startuml
+
+rectangle "git\ncommit" as commit
+rectangle "git\npush" as push
+actor bezoeker
+
+rectangle "GitHub" #LightGreen {
+rectangle "GitHub Actions\n(build with Hugo)" as actions
+rectangle "GitHub Pages\n(publish)" as pages
+}
+
+commit -right-> push
+push -right-> actions
+actions -down-> pages
+pages -left-> bezoeker 
+@enduml

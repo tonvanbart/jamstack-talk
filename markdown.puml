@@ -1,0 +1,12 @@
+@startuml
+left to right direction
+
+rectangle "markdown" as MD
+rectangle "templates" as TPL
+rectangle "generator" as GEN
+rectangle "html" as HTML
+
+MD --> GEN
+TPL --> GEN
+GEN --> HTML
+@enduml
