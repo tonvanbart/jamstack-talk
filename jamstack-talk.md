@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: gaia
-paginate: false
+paginate: true
 html: true
 style: |
   pre {
@@ -168,6 +168,8 @@ Git is: versiebeheer voor code;
 <!-- 
 Git in 2 minuten: hou de historie bij van een reeks van files in een directory (en subdirs).
 Git slaat de diff op, met de datum, gebruikersnaam en commit message.
+Het is een "tijdmachine" voor je code, en net als in een SF
+film kun je alternatieve versies van de historie hebben: branches. Dit valt verder buiten het bestek van dit praatje.
 -->
 
 ---
@@ -179,6 +181,11 @@ Hiermee kunnen ontwikkelaars samen werken aan een repo
 * `git push {NAAM}`: stuur de hele historie naar de remote
 * `git pull {NAAM}`: haal de historie op uit de remote
 
+<!-- 
+Remotes zijn het mechanisme waarmee wordt samengewerkt aan een project; iedereen heeft zijn eigen versie van de repo.
+Wijzigingen worden gedeeld dmv push/pull (pull request buiten het bestek van deze lezing)
+-->
+
 ---
 ## Github
 Centrale plek om een remote op te slaan; gratis voor OSS.
@@ -189,7 +196,50 @@ Naast een Git remote biedt Github extra voorzieningen: project wiki, <span class
 git remote add origin git@github.com:ownernaam/reponaam.git
 ```
 
+<!-- 
+Github als mechanisme om samen te werken?
+Alternatief met soortgelijke voorzieningen: Gitlab, of Gitea als OSS (evt self hosted) alternatief.
+-->
+---
+## Github Pages
+* website served vanuit een Github repo
+* Gepubliceerd vanuit een branch, of vanuit een workflow 
+* Standaard URL: https://usernaam.github.io/projectnaam 
+* Ondersteunt HTTPS
+* Custom domain is mogelijk!
+
+---
+## Github pages: custom domain
+Custom domain vereist twee stappen:
+1. Provider DNS: CNAME record verwijst naar github user
+   ![width:800px](out/dns-records.png)
+1. CNAME bestand in repo verwijst naar sitenaam:
+   `scanqr.vanbart.org`
+  
+
+<!-- 
+Voor gebruik van een custom domein moet dit domein geregistreerd zijn (niet gratis dus, maar goedkoop)
+Voeg bij de registrar een CNAME record toe dat alleen naar
+de Github gebruiker verwijst: username.github.io. (let op de punt)
+In de repo zelf komt een bestandje "CNAME" met alleen 
+de websitenaam er in. 
+-->
+---
+## Github Actions
+* automatisering voor CI/CD
+* een of meer "jobs" met elk een of meer "steps"
+* getriggerd door "events" in de repo als push, release
+* ...of handmatig
+
+<!-- 
+Continuous Integration: het automatisch bouwen en testen van de code bij elke wijziging
+Continous Delivery: het automatisch bouwen van het eindproduct
+-->
+
+---
+
 ---
 ## Het plan
 ![width:550px](./out/workflow/workflow.svg)
 
+---
