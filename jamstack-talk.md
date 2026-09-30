@@ -225,6 +225,11 @@ In de repo zelf komt een bestandje "CNAME" met alleen
 de websitenaam er in. 
 -->
 ---
+## Github Pages: settings
+
+![width:700px](out/pages-settings.png)
+
+---
 ## Github Actions
 * automatisering voor CI/CD
 * een of meer "jobs" met elk een of meer "steps"
@@ -237,7 +242,10 @@ Continous Delivery: het automatisch bouwen van het eindproduct
 -->
 
 ---
+## Github Actions
+```yaml
 
+```
 ---
 ## Het plan
 ![width:550px](./out/workflow/workflow.svg)
