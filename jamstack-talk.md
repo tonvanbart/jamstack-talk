@@ -108,9 +108,11 @@ Site bouw is snel (maakt voor mijn kleine site niet uit)
 <!-- _class: two-columns -->
 ## Markdown
 <!--
-* lichtgewicht markup
-* human readable, machine translatable
-* zie [markdown.org](https://markdown.org)
+De meeste site generators maken gebruik van Markdown.
+Hiermee is de basis formatting eenvoudig weer te geven
+(denk aan images, kopregels, lists en tables enz)
+De site generator kan dit omzetten naar HTML.
+Er is een specificatie van Markdown, zie de link.
 -->
 Lichtgewicht markup; human readable, machine translatable
 Zie [markdown.org](https://markdown.org)
@@ -137,6 +139,18 @@ voegen aan plain text.
 Gebruikt in bijv. Wikipedia, GitHub README en deze presentatie (Marp)!
 -->
 ---
+## Waarom Hugo
+
+* single binary
+* geen dependencies om te installeren
+* makkelijk in te zetten in publish automatisering
+
+<!-- 
+Hugo is geschreven in Go: single native binary, geen dependencies. Handig zowel lokaal als in de CICD omgeving.
+Dit wordt duidelijk als we naar Github Actions gaan kijken.
+-->
+
+---
 ## Markdown: front matter
 Metadata waar de generator iets mee kan:
 ```markdown
@@ -153,6 +167,25 @@ on GitHub Pages, deployed via GitHub Actions.
 Frontmatter bevat metadata: gegevens over de pagina. Een site generator kan hier iets mee
 b.v. de post op een blogpagina voorzien van een datum.
 -->
+---
+## Hugo: directory structuur
+```
+my-project/
+├── archetypes/
+│   └── default.md
+├── assets/
+├── config/
+│   └── _default/
+│       └── hugo.toml
+├── content/
+├── data/
+├── i18n/
+├── layouts/
+├── public/       <-- created when you build your project
+├── resources/    <-- created when you build your project
+├── static/
+└── themes/
+```
 ---
 ## Git
 Git is: versiebeheer voor code; 
@@ -206,7 +239,7 @@ Alternatief met soortgelijke voorzieningen: Gitlab, of Gitea als OSS (evt self h
 * Gepubliceerd vanuit een branch, of vanuit een workflow 
 * Standaard URL: https://usernaam.github.io/projectnaam 
 * Ondersteunt HTTPS
-* Custom domain is mogelijk!
+* Custom domain is mogelijk
 
 ---
 ## Github pages: custom domain
@@ -231,7 +264,7 @@ de websitenaam er in.
 
 ---
 ## Github Actions
-* automatisering voor CI/CD
+* automatisering voor Continuous Integration/Delivery
 * een of meer "jobs" met elk een of meer "steps"
 * getriggerd door "events" in de repo als push, release
 * ...of handmatig
@@ -239,15 +272,105 @@ de websitenaam er in.
 <!-- 
 Continuous Integration: het automatisch bouwen en testen van de code bij elke wijziging
 Continous Delivery: het automatisch bouwen van het eindproduct
+Een workflow bestaat uit een of meer jobs (bv bouw, test, creeer een zip met de output) en elke job bevat een of meer
+steps (bv bouw = check de code uit, start de bouw, etc).
+Een job heeft steps in volgorde. Jobs onderling kunnen
+afhankelijkheid hebben OF eventueel parallel draaien.
+Dit kunnen we gebruiken voor het bouwen van de site.
 -->
 
 ---
-## Github Actions
-```yaml
-
-```
----
+<!-- _class: two-columns -->
 ## Het plan
-![width:550px](./out/workflow/workflow.svg)
+<img src="./out/workflow/workflow.svg" style="width:450px">
 
+* `git push` start workflow
+* job 1: bouw de site (Hugo)
+* job 2: publish naar Pages
+
+<!-- 
+We gebruiken 2 jobs.
+Jobs draaien op zgn. runners (meest Ubuntu), job 1 
+zet Hugo op de runner plus de site files en roept dan Hugo
+aan om de site te bouwen. Daarna wordt het resultaat 
+omgezet naar het formaat dan Pages verwacht.
+job 2 is volgorde afhankelijk van job 1. Deze pakt het 
+resultaat van job 1 op en deployt het naar Pages.
+
+-->
+
+---
+## Github Actions trigger en build
+
+```yaml
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+        (...)
+```
+
+<!-- 
+Het eerste deel van de workflow definitie, versimpeld.
+1 job met meerdere stappen: install Hugo, en run het dan.
+Het resultaat belandt in ./public, en wordt ingepakt in
+een formaat dat Pages verwacht (gzip met tar er in).
+NB officiele limiet voor het artifact is 1Gb! 
+-->
+---
+## Github Actions deploy
+```yaml
+jobs:
+
+  (...)
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+```
+
+<!-- 
+De tweede job heeft eigenlijk maar 1 step: pak het 
+artifact uit de vorige job en deploy het naar Pages.
+Deze job is afhankelijk van het slagen van de "build" job.
+-->
+---
+## Github Actions: status scherm
+
+![](out/github-actions-status.png)
+
+<!-- 
+In de repo staat in het top menu een tab "Actions".
+Hier zijn alle workflow runs te bekijken. 
+Wat je ziet zijn de commit message en user, tijdstip en
+duur van de workflow run, en de status (groen vinkje = OK)
+-->
+---
+<!-- 
+TO DO: demo (Hugo local server?)
+TO DO: demo Hugo site generatie?
+
+TO DO: demo end-to-end commit -> push -> build -> deploy?
+
+TO DO: Forms gedeelte
+
+TO DO: site omzetten naar Nederlands
+TO DO: news pagina omzetten naar simpele lijst
+-->
 ---

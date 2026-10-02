@@ -5,12 +5,14 @@ rectangle "git\npush" as push
 actor bezoeker
 
 rectangle "GitHub" #LightGreen {
-rectangle "GitHub Actions\n(build with Hugo)" as actions
-rectangle "GitHub Pages\n(publish)" as pages
+rectangle "GitHub Actions\n(Hugo build)" as actions
+rectangle "GitHub Actions\n(deploy)" as deploy 
+collections "GitHub Pages" as pages
 }
 
 commit -right-> push
 push -right-> actions
-actions -down-> pages
+actions -down-> deploy
+deploy -down-> pages 
 pages -left-> bezoeker 
 @enduml
