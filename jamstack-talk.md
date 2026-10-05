@@ -33,7 +33,7 @@ style: |
   img { display: block; margin: 0 auto; }
 ---
 <!-- _class: lead -->
-# Boterham met jam(stack)
+# van LAMP naar JAM
 ### static websites op GitHub met Hugo
 <!-- 
 Waar gaat dit over: hosting van een plain 
@@ -57,19 +57,20 @@ Presentatie geeft een vogelvlucht van de onderwerpen!
 ---
 ## Website hosting (vaak)
 * Veelal Wordpress
-* Bekend platform: groot ecosysteem
-  (plugins, themes)
+* Bekend platform: groot ecosysteem (plugins, themes)
 * Hosting moet PHP en MySQL ondersteunen
   meer "attack surface": bijhouden!
 * Pagina's worden "on demand" gegenereerd
+* LAMP stack: Linux, Apache, MySQL, PHP
 
 
 <!--
-In veel gevallen: Wordpress. Niets mis mee, algemeen bekend, plugins, themes, ecosysteem.
+Website hosting: in veel gevallen: Wordpress. Niets mis mee, algemeen bekend, plugins, themes, ecosysteem.
 Er zijn consequensties: LAMP stack, hosting moet MySQL en PHP hebben.
 Onderhoud noodzakelijk (hacking!) hosting is duurder, of zelf doen.
 Self hosting: idem, hou je thuisnetwerk veilig.
 Omdat pagina's "on the fly" worden gegenereerd kan de site trager aanvoelen en zwaarder zijn voor de server.
+Dit heet een LAMP stack: Linux, Apache, MySQL en een programmeertaal met een P (PHP, of Python/Perl)
 -->
 
 ---
@@ -84,7 +85,8 @@ Statische websites zijn een goedkoop alterntief. Consequentie: hand coded HTML?
 Niemand heeft zin om dat met de hand bij te houden 
 (styling, templating enz)
 Bv. aanpassing nav menu is veel handmatig werk 
-op iedere pagina.
+op iedere pagina, aanpassing theme betekent alle
+pagina's editen, enz.
 -->
 
 ---
@@ -186,6 +188,16 @@ my-project/
 ├── static/
 └── themes/
 ```
+<!-- 
+Hugo sites hebben een standaard directory structuur.
+Onderhoud met commando's: `hugo new news/demo.md
+Dit genereert een leeg basis Markdown document
+op basis van het archetype.
+Demo hier?
+-->
+---
+<!-- _class: lead -->
+## Demo: Hugo 
 ---
 ## Git
 Git is: versiebeheer voor code; 
@@ -362,11 +374,29 @@ Wat je ziet zijn de commit message en user, tijdstip en
 duur van de workflow run, en de status (groen vinkje = OK)
 -->
 ---
-<!-- 
-TO DO: demo (Hugo local server?)
-TO DO: demo Hugo site generatie?
+<!-- _class: lead -->
+## Demo: git push en site herbouw
+---
+## Wat te doen met... forms?
+* geen server betekent geen form handling
+* op te lossen met serverless functie
+* JAMstack: <span class="red">J</span>avascript, <span class="red">A</span>PIs, (statische) <span class="red">M</span>arkup
 
-TO DO: demo end-to-end commit -> push -> build -> deploy?
+<!-- 
+Geen server betekent dat we form handling moeten uitbestenden aan een (serverless) functie.
+Voorbeelden Netlify Forms, Formspree, ...
+In deze presentatie: Google Apps Script en Google Sheets.
+-->
+---
+## Voorbeeld: Google Sheets
+
+---
+<!-- 
+TO DO: demo (Hugo local server?) DONE
+TO DO: demo Hugo site generatie? DONE
+TO DO: test form handling
+
+TO DO: demo end-to-end commit -> push -> build -> deploy? DONE
 
 TO DO: Forms gedeelte
 
@@ -374,3 +404,20 @@ TO DO: site omzetten naar Nederlands
 TO DO: news pagina omzetten naar simpele lijst
 -->
 ---
+## TIMTOWTDI
+
+* andere site generators
+* andere hosting
+* andere form oplossing
+
+<!-- 
+There Is More Than One Way To Do It
+
+Dit is 1 mogelijkheid, maar niet de enige.
+Deploy kan ook (met aanpassingen) naar Cloudflare, Amazon, Google Firebase, ...
+Zie Hugo docs https://gohugo.io/host-and-deploy/ 
+Je zou ook kunnen bouwen met een andere site 
+generator, zie axual.github.io/ksml met mkdocs.
+Alternatieve form oplossingen zijn Netlify Forms, Formspree en anderen
+
+-->
