@@ -125,6 +125,7 @@ Zie [markdown.org](https://markdown.org)
 <p>Paragraph tekst</p>
 <p>Tweede paragraph</p>
 <a href="http://www.example.com">hyperlink</a>
+<img src="plaatje.jpg">
 ```
 
 ```markdown
@@ -134,6 +135,7 @@ Paragraph tekst
 
 Tweede paragraph
 [hyperlink](http://www.example.com)
+
 ```
 <!-- 
 Markdown is een lichtgewicht manier om formatting toe te 
@@ -388,20 +390,24 @@ Voorbeelden Netlify Forms, Formspree, ...
 In deze presentatie: Google Apps Script en Google Sheets.
 -->
 ---
-## Voorbeeld: Google Sheets
+## Voorbeeld: Google Sheets backend
+* Google Sheet als data opslag
+* Google apps script als form handler
+* Dit werkt - maar heeft zijn zwakke punten
+
+<!--
+Deze oplossing is OK mits wat hardening en voor laag volume. 
+Voor grotere volumes/beter oplossingen zijn er 
+andere diensten beschikbaar
+
+-->
 
 ---
 <!-- 
-TO DO: demo (Hugo local server?) DONE
-TO DO: demo Hugo site generatie? DONE
-TO DO: test form handling
-
-TO DO: demo end-to-end commit -> push -> build -> deploy? DONE
+TO DO: test form handling DONE
 
 TO DO: Forms gedeelte
 
-TO DO: site omzetten naar Nederlands
-TO DO: news pagina omzetten naar simpele lijst
 -->
 ---
 ## TIMTOWTDI
@@ -415,9 +421,10 @@ There Is More Than One Way To Do It
 
 Dit is 1 mogelijkheid, maar niet de enige.
 Deploy kan ook (met aanpassingen) naar Cloudflare, Amazon, Google Firebase, ...
+De eerste job in de workflow blijft dan hetzelfde, alleen de tweede deploy job wordt anders.
 Zie Hugo docs https://gohugo.io/host-and-deploy/ 
 Je zou ook kunnen bouwen met een andere site 
 generator, zie axual.github.io/ksml met mkdocs.
-Alternatieve form oplossingen zijn Netlify Forms, Formspree en anderen
+Alternatieve form oplossingen zijn Netlify Forms, Formspree en anderen.
 
 -->
