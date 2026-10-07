@@ -261,11 +261,12 @@ Alternatief met soortgelijke voorzieningen: Gitlab, of Gitea als OSS (evt self h
 
 ---
 ## Github pages: custom domain
-Custom domain vereist twee stappen:
+Dit vereist drie stappen:
 1. Provider DNS: CNAME record verwijst naar github user
-   ![width:800px](out/dns-records.png)
+   ![width:600px](out/dns-records.png)
 1. CNAME bestand in repo verwijst naar sitenaam:
    `scanqr.vanbart.org`
+1. custom domein toevoegen in settings
   
 
 <!-- 
@@ -305,6 +306,7 @@ Dit kunnen we gebruiken voor het bouwen van de site.
 * `git push` start workflow
 * job 1: bouw de site (Hugo)
 * job 2: publish naar Pages
+* profit/world domination
 
 <!-- 
 We gebruiken 2 jobs.
@@ -344,6 +346,7 @@ jobs:
 <!-- 
 Het eerste deel van de workflow definitie, versimpeld.
 1 job met meerdere stappen: install Hugo, en run het dan.
+Hier zie je waarom het handig is dat Hugo een single executable is; er zijn geen dependencies om te installeren.
 Het resultaat belandt in ./public, en wordt ingepakt in
 een formaat dat Pages verwacht (gzip met tar er in).
 NB officiele limiet voor het artifact is 1Gb! 
@@ -407,13 +410,6 @@ andere diensten beschikbaar
 -->
 
 ---
-<!-- 
-TO DO: test form handling DONE
-
-TO DO: Forms gedeelte
-
--->
----
 ## TIMTOWTDI
 
 * andere site generators
@@ -424,11 +420,24 @@ TO DO: Forms gedeelte
 There Is More Than One Way To Do It
 
 Dit is 1 mogelijkheid, maar niet de enige.
-Deploy kan ook (met aanpassingen) naar Cloudflare, Amazon, Google Firebase, ...
+Deploy kan ook naar Cloudflare, Amazon, Google Firebase, ...
+De Actions workflow moet daar op aangepast worden.
 De eerste job in de workflow blijft dan hetzelfde, alleen de tweede deploy job wordt anders.
 Zie Hugo docs https://gohugo.io/host-and-deploy/ 
 Je zou ook kunnen bouwen met een andere site 
 generator, zie axual.github.io/ksml met mkdocs.
 Alternatieve form oplossingen zijn Netlify Forms, Formspree en anderen.
+Het basis idee blijft zoals hier beschreven.
 
 -->
+---
+<!-- _class: lead -->
+
+![width:300px](out/98445-question-mark-fractal.svg)
+
+---
+<!-- _class: lead -->
+
+# Bedankt!
+
+---
