@@ -34,7 +34,8 @@ style: |
 ---
 <!-- _class: lead -->
 # van LAMP naar JAM
-### static websites op GitHub met Hugo
+#### statische websites met Hugo 
+#### gehost op GitHub
 <!-- 
 Waar gaat dit over: hosting van een plain 
 html website op Github, en site generatie met Hugo dmv een Github workflow on demand,.
@@ -82,6 +83,9 @@ Dit heet een LAMP stack: Linux, Apache, MySQL en een programmeertaal met een P (
 
 <!-- 
 Statische websites zijn een goedkoop alterntief. Consequentie: hand coded HTML? 
+Hosting is goedkoop
+Sneller (geen paginageneratie)
+Veilig(er)
 Niemand heeft zin om dat met de hand bij te houden 
 (styling, templating enz)
 Bv. aanpassing nav menu is veel handmatig werk 
@@ -101,7 +105,7 @@ Een statische website generator kan zorgen voor uniforme
 layout, styling enz.
 Content wordt geschreven in versimpelde markup (Markdown), 
 de generator zorgt er voor dat de nodige pagina's (opnieuw)
-worden gegenereerd.
+worden gegenereerd mbv templating.
 -->
 
 ---
@@ -133,6 +137,7 @@ Paragraph tekst
 
 Tweede paragraph
 [hyperlink](http://www.example.com)
+![](/plaatje.jpg)
 
 ```
 <!-- 
@@ -258,6 +263,13 @@ Alternatief met soortgelijke voorzieningen: Gitlab, of Gitea als OSS (evt self h
 * Ondersteunt HTTPS
 * Custom domain is mogelijk
 
+<!-- 
+Github Pages is de hosting voor de website van je project.
+Publish vanuit een workflow, of vanuit een branch (buiten scope v dit praatje)
+standaard URL gebaseerd op je project en gebruikernaam
+kan HTTPS (heb je anders een cert voor nodig) en custom domain
+-->
+
 ---
 ## Github pages: custom domain
 Dit vereist drie stappen:
@@ -279,6 +291,13 @@ de websitenaam er in.
 ## Github Pages: settings
 
 ![width:700px](out/pages-settings.png)
+
+<!-- 
+Van een kleine website die ik ook op deze manier beheer (motorgroep)
+DNS check in progress: wijzen de DNS servers ook naar Github?
+Enforce HTTPS: alle http requests worden geredirect naar https.
+
+-->
 
 ---
 ## Github Actions
@@ -387,24 +406,29 @@ duur van de workflow run, en de status (groen vinkje = OK)
 ---
 ## Wat te doen met... forms?
 * geen server betekent geen form handling
+* Google Form embed (lelijk!)
 * op te lossen met serverless functie
 * JAMstack: <span class="red">J</span>avascript, <span class="red">A</span>PIs, (statische) <span class="red">M</span>arkup
 
 <!-- 
 Geen server betekent dat we form handling moeten uitbestenden aan een (serverless) functie.
+Je kunt Google Forms gebruiken en die embedden, gebruikt alleen 
+zij eigen styling.
 Voorbeelden Netlify Forms, Formspree, ...
-In deze presentatie: Google Apps Script en Google Sheets.
+In deze presentatie: Formspree gratis account.
 -->
 ---
-## Voorbeeld: Google Sheets backend
-* Google Sheet als data opslag
-* Google apps script als form handler
-* Dit werkt - maar heeft zijn zwakke punten
+## Voorbeeld: Formspree
+* Dienst om form submits te verwerken, free tier
+* aanmelden met email
+* validaties (niet getest)
+* form data in dashboard
 
 <!--
 Deze oplossing is OK mits wat hardening en voor laag volume. 
 Voor grotere volumes/beter oplossingen zijn er 
-andere diensten beschikbaar
+andere diensten beschikbaar of moet er betaald worden.
+Formspree gratis: 50 submits/maand
 
 -->
 
