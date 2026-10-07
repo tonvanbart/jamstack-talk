@@ -1,7 +1,7 @@
 ---
 marp: true
 theme: gaia
-paginate: true
+paginate: false
 html: true
 style: |
   pre {
@@ -37,13 +37,12 @@ style: |
 ### static websites op GitHub met Hugo
 <!-- 
 Waar gaat dit over: hosting van een plain 
-html website op Github, en site generatie met Hugo dmv een Github workflow on demand,
-getriggerd door git push.
-Dit is 1 voorbeeld, je kunt kiezen voor andere
-hosting, andere generator, enz. 
+html website op Github, en site generatie met Hugo dmv een Github workflow on demand,.
+Opzet berust op 3 pijlers: Hugo, Git, en Github: pages en actions. Over elk valt heel veel te vertellen maar daar is niet genoeg tijd voor.
+
 Verder zullen we kijken naar form handling. Ook 
 hier 1 alternatief van vele.
-Opzet berust op 3 pijlers: Hugo, Git, en Github: pages en actions. Over elk valt heel veel te vertellen maar daar is niet genoeg tijd voor.
+
 Presentatie geeft een vogelvlucht van de onderwerpen!
 -->
 
