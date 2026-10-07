@@ -244,7 +244,7 @@ Wijzigingen worden gedeeld dmv push/pull (pull request buiten het bestek van dez
 ---
 ## Github
 Centrale plek om een remote op te slaan; gratis voor OSS.
-Naast een Git remote biedt Github extra voorzieningen: project wiki, <span class="red">CI/CD workflows</span>, issue tracking, <span class="red">project websites</span>, en meer.
+Naast een Git remote biedt Github extra voorzieningen: project wiki, <span class="red">project websites</span>, issue tracking, <span class="red">CI/CD workflows</span>, en meer.
 <p>
 
 ```shell
@@ -252,7 +252,7 @@ git remote add origin git@github.com:ownernaam/reponaam.git
 ```
 
 <!-- 
-Github als mechanisme om samen te werken?
+Github als mechanisme om samen te werken
 Alternatief met soortgelijke voorzieningen: Gitlab, of Gitea als OSS (evt self hosted) alternatief.
 -->
 ---
@@ -412,10 +412,14 @@ duur van de workflow run, en de status (groen vinkje = OK)
 
 <!-- 
 Geen server betekent dat we form handling moeten uitbestenden aan een (serverless) functie.
+
 Je kunt Google Forms gebruiken en die embedden, gebruikt alleen 
-zij eigen styling.
-Voorbeelden Netlify Forms, Formspree, ...
-In deze presentatie: Formspree gratis account.
+zijn eigen styling (iframe)
+
+serverless functie: Voorbeelden Netlify Forms, Formspree, ...
+
+Hier komt de term JAM stack vandaan:
+Javascript, API, Markup als in statische markup.
 -->
 ---
 ## Voorbeeld: Formspree
@@ -425,11 +429,8 @@ In deze presentatie: Formspree gratis account.
 * form data in dashboard
 
 <!--
-Deze oplossing is OK mits wat hardening en voor laag volume. 
-Voor grotere volumes/beter oplossingen zijn er 
-andere diensten beschikbaar of moet er betaald worden.
-Formspree gratis: 50 submits/maand
-
+In deze presentatie: Formspree gratis account.
+Dit is gelimiteerd tot 50 submits per maand.
 -->
 
 ---
