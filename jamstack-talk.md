@@ -59,8 +59,8 @@ Presentatie geeft een vogelvlucht van de onderwerpen!
 * Veelal Wordpress
 * Bekend platform: groot ecosysteem (plugins, themes)
 * Hosting moet PHP en MySQL ondersteunen
-  meer "attack surface": bijhouden!
-* Pagina's worden "on demand" gegenereerd
+  meer attack surface: bijhouden!
+* Pagina's worden on demand gegenereerd: snelheid
 * LAMP stack: Linux, Apache, MySQL, PHP
 
 
@@ -75,10 +75,11 @@ Dit heet een LAMP stack: Linux, Apache, MySQL en een programmeertaal met een P (
 
 ---
 ## Alternatief: statische websites
-* "plain" HTML
+* plain HTML
 * hosting kan goedkoop of gratis
 * snel (geen on demand page generatie)
 * minimaal attack surface
+* ...onhandig
 
 <!-- 
 Statische websites zijn een goedkoop alterntief. Consequentie: hand coded HTML? 
@@ -92,7 +93,7 @@ pagina's editen, enz.
 ---
 ## Statische website generator
 * Content tekst (markdown) plus templates
-* Jekyll (Ruby), Pelican (Python), Eleventy (node), <span class="red">Hugo</span> (Go)...
+* Jekyll (Ruby), Pelican (Python), Eleventy (node), Hugo (Go)...
 
 ![width:800px](./out/markdown/markdown.svg)
 
@@ -102,8 +103,6 @@ layout, styling enz.
 Content wordt geschreven in versimpelde markup (Markdown), 
 de generator zorgt er voor dat de nodige pagina's (opnieuw)
 worden gegenereerd.
-Waarom Hugo? Simpele install (1 executable), Golang templating die ik al een beetje kende.
-Site bouw is snel (maakt voor mijn kleine site niet uit)
 -->
 
 ---
@@ -116,7 +115,7 @@ Hiermee is de basis formatting eenvoudig weer te geven
 De site generator kan dit omzetten naar HTML.
 Er is een specificatie van Markdown, zie de link.
 -->
-Lichtgewicht markup; human readable, machine translatable
+Lichtgewicht markup, simpele formatting
 Zie [markdown.org](https://markdown.org)
 
 ```html
@@ -141,18 +140,6 @@ voegen aan plain text.
 Gebruikt in bijv. Wikipedia, GitHub README en deze presentatie (Marp)!
 -->
 ---
-## Waarom Hugo
-
-* single binary
-* geen dependencies om te installeren
-* makkelijk in te zetten in publish automatisering
-
-<!-- 
-Hugo is geschreven in Go: single native binary, geen dependencies. Handig zowel lokaal als in de CICD omgeving.
-Dit wordt duidelijk als we naar Github Actions gaan kijken.
--->
-
----
 ## Markdown: front matter
 Metadata waar de generator iets mee kan:
 ```markdown
@@ -169,6 +156,21 @@ on GitHub Pages, deployed via GitHub Actions.
 Frontmatter bevat metadata: gegevens over de pagina. Een site generator kan hier iets mee
 b.v. de post op een blogpagina voorzien van een datum.
 -->
+
+---
+## Waarom Hugo
+
+* single binary
+* geen dependencies om te installeren
+* makkelijk in te zetten in publish automatisering
+
+<!-- 
+Waarom Hugo? Simpele install (1 executable), Golang templating die ik al een beetje kende.
+Site bouw is snel (maakt voor kleine site niet uit)
+Hugo is geschreven in Go: single native binary, geen dependencies. Handig zowel lokaal als in de CICD omgeving.
+Dit wordt duidelijk als we naar Github Actions gaan kijken.
+-->
+
 ---
 ## Hugo: directory structuur
 ```
@@ -208,6 +210,8 @@ Git is: versiebeheer voor code;
 * `git commit`: leg deze wijziging(en) definitief vast
 
 ```shell
+> git init
+> git add nllgg-post.md
 > git commit -m 'blogpost over nllgg toegevoegd'
 ```
 <!-- 
@@ -223,7 +227,7 @@ Meerdere versies van een Git repo, op verschillende machines.
 Hiermee kunnen ontwikkelaars samen werken aan een repo
 
 * `git remote add {NAAM} {URL}`: voeg de remote op url {URL} toe als {NAAM}
-* `git push {NAAM}`: stuur de hele historie naar de remote
+* `git push {NAAM}`: stuur de lokale historie naar de remote
 * `git pull {NAAM}`: haal de historie op uit de remote
 
 <!-- 
