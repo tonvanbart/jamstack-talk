@@ -40,6 +40,7 @@ style: |
 Waar gaat dit over: hosting van een plain 
 html website op Github, en site generatie met Hugo dmv een Github workflow on demand,.
 Opzet berust op 3 pijlers: Hugo, Git, en Github: pages en actions. Over elk valt heel veel te vertellen maar daar is niet genoeg tijd voor.
+Dit is een vrij hardcore technisch verhaal!
 
 Verder zullen we kijken naar form handling. Ook 
 hier 1 alternatief van vele.
@@ -50,13 +51,15 @@ Presentatie geeft een vogelvlucht van de onderwerpen!
 ---
 ## Wie ben ik
 * semi gepensioneerd software engineer
-* OSS contributor [ksml.io](https://ksml.io) (in dienst)
+* OSS contributor [ksml.io](https://ksml.io) (in dienst, axual.com)
 
 * [github.com/tonvanbart](github.com/tonvanbart)
 
 <!-- 
-Wie ik ben: semi gepensioneerd software engineer, AOW-er, 
-1 dag per week bij Axual. Meest open source component: KSML.
+Wie ik ben: semi gepensioneerd software engineer, AOW-er.
+45 jaar engineering ervaring in allerlei rollen (system, network, software) 
+nu nog 1 dag per week bij Axual.
+Meest open source component: KSML.
 Github profiel met mijn fork van KSML en mijn eigen open
 source frutsels. Ook deze presentatie is daar te vinden plus
 een compleet werkend voorbeeld (links op laatste slide).
@@ -90,10 +93,11 @@ Dit heet een LAMP stack: Linux, Apache, MySQL en een programmeertaal met een P (
 * ...onhandig
 
 <!-- 
-Statische websites zijn een goedkoop alterntief. Consequentie: hand coded HTML? 
+Statische websites zijn een goedkoop alterntief.  
 Hosting is goedkoop
 Sneller (geen paginageneratie)
 Veilig(er)
+Consequentie: hand coded HTML?
 Niemand heeft zin om dat met de hand bij te houden 
 (styling, templating enz)
 Bv. aanpassing nav menu is veel handmatig werk 
@@ -512,14 +516,6 @@ Vb. Sveltium: Git based frontend voor Hugo, save is git push
 ---
 <!-- _class: lead -->
 
-![width:300px](out/98445-question-mark-fractal.svg)
-
-<!-- 
-vragen? 
--->
----
-<!-- _class: lead -->
-
 # Bedankt!
 
 [github.com/tonvanbart/hugo-demo](github.com/tonvanbart/hugo-demo)
@@ -529,5 +525,13 @@ vragen?
 Bedankt voor het luisteren. Een compleet werkend voorbeeld is te
 vinden op Github, deze kun je forken en er zelf mee aan de slag.
 Het voorbeeld is gehost op eigen domein.
+-->
+---
+<!-- _class: lead -->
+
+![width:300px](out/98445-question-mark-fractal.svg)
+
+<!-- 
+vragen? 
 -->
 ---
