@@ -43,7 +43,6 @@ html website op Github, en site generatie met Hugo dmv een Github workflow on de
 Dit is een vrij hardcore technisch verhaal!
 
 Opzet berust op 3 pijlers: Hugo, Git, en Github: pages en actions. Over elk valt heel veel te vertellen maar daar is niet genoeg tijd voor.
-Dit is een vrij hardcore technisch verhaal!
 
 Verder zullen we kijken naar form handling. Ook 
 hier 1 alternatief van vele.
@@ -59,11 +58,11 @@ Presentatie geeft een vogelvlucht van de onderwerpen!
 * [github.com/tonvanbart](github.com/tonvanbart)
 
 <!-- 
-Wie ik ben: semi gepensioneerd software engineer, AOW-er.
+* Wie ik ben: semi gepensioneerd software engineer, AOW-er.
 45 jaar engineering ervaring in allerlei rollen (system, network, software) 
-nu nog 1 dag per week bij Axual.
+* nu nog 1 dag per week bij Axual.
 Meest open source component: KSML.
-Github profiel met mijn fork van KSML en mijn eigen open
+* Github profiel met mijn fork van KSML en mijn eigen open
 source frutsels. Ook deze presentatie is daar te vinden plus
 een compleet werkend voorbeeld (links op laatste slide).
 -->
@@ -79,12 +78,13 @@ een compleet werkend voorbeeld (links op laatste slide).
 
 
 <!--
-Website hosting: in veel gevallen: Wordpress. Niets mis mee, algemeen bekend, plugins, themes, ecosysteem.
-Er zijn consequensties: LAMP stack, hosting moet MySQL en PHP hebben.
+* Website hosting: in veel gevallen: Wordpress. 
+* Niets mis mee, algemeen bekend, plugins, themes, ecosysteem.
+* Er zijn consequensties: LAMP stack, hosting moet MySQL en PHP hebben.
 Onderhoud noodzakelijk (hacking!) hosting is duurder, of zelf doen.
 Self hosting: idem, hou je thuisnetwerk veilig.
-Omdat pagina's "on the fly" worden gegenereerd kan de site trager aanvoelen en zwaarder zijn voor de server.
-Dit heet een LAMP stack: Linux, Apache, MySQL en een programmeertaal met een P (PHP, of Python/Perl)
+* Omdat pagina's "on the fly" worden gegenereerd kan de site trager aanvoelen en zwaarder zijn voor de server.
+* Dit heet een LAMP stack: Linux, Apache, MySQL en een programmeertaal met een P (PHP, of Python/Perl)
 -->
 
 ---
@@ -96,11 +96,11 @@ Dit heet een LAMP stack: Linux, Apache, MySQL en een programmeertaal met een P (
 * ...onhandig
 
 <!-- 
-Statische websites zijn een goedkoop alterntief.  
-Hosting is goedkoop
-Sneller (geen paginageneratie)
-Veilig(er)
-Consequentie: hand coded HTML?
+* Statische websites zijn een goedkoop alterntief.  
+* Hosting is goedkoop
+* Sneller (geen paginageneratie)
+* Veilig(er)
+* Consequentie: hand coded HTML?
 Niemand heeft zin om dat met de hand bij te houden 
 (styling, templating enz)
 Bv. aanpassing nav menu is veel handmatig werk 
@@ -118,10 +118,10 @@ pagina's editen, enz.
 <!--
 Een statische website generator kan zorgen voor uniforme 
 layout, styling enz.
-Content wordt geschreven in versimpelde markup (Markdown), 
+* Content wordt geschreven in versimpelde markup (Markdown), 
 de generator zorgt er voor dat de nodige pagina's (opnieuw)
 worden gegenereerd mbv templating.
-Er zijn veel verschillende open source statische website generators, geschreven in allerlei programmeertalen.
+* Er zijn veel verschillende open source statische website generators, geschreven in allerlei programmeertalen.
 Jekyll, Pelican, Eleventy, Hugo, enz.
 -->
 
@@ -190,8 +190,10 @@ het maar oppikt en er iets mee doet.
 * makkelijk in te zetten in publish automatisering
 
 <!-- 
-Waarom Hugo? Simpele install (1 executable), Golang templating die ik al een beetje kende.
-Site bouw is snel (maakt voor kleine site niet uit overigens)
+Waarom Hugo? 
+* Simpele install (1 executable), Golang templating die ik al een beetje kende.
+* geen dependencies
+* Site bouw is snel (maakt voor kleine site niet uit overigens)
 Hugo is geschreven in Go: single native binary, geen dependencies. Handige installatie zowel lokaal als in de CICD omgeving.
 Dit wordt duidelijk als we naar Github Actions gaan kijken.
 -->
@@ -223,7 +225,6 @@ Onderhoud met commando's: `hugo new news/demo.md
 Dit genereert een leeg basis Markdown document
 op basis van het archetype.
 Ook hier zie de Hugo docs voor meer informatie.
-Demo hier?
 -->
 ---
 <!-- _class: lead -->
@@ -251,6 +252,9 @@ We hebben nu een directory met site content waar we graag versie
 beheer op willen.
 Git in 2 minuten: hou de historie bij van een reeks van files in een directory (en subdirs).
 De getoonde commando's geven de basis weer.
+* init
+* add
+* commit
 Git slaat de diff op, met de datum, gebruikersnaam en commit message.
 Het is een "tijdmachine" voor je code, en net als in een SF
 film kun je terug en alternatieve versies van de historie hebben: branches. Dit valt verder buiten het bestek van dit praatje.
@@ -303,11 +307,12 @@ Er zijn alternatieven met soortgelijke voorzieningen: Gitlab, of Gitea (OSS, evt
 
 <!-- 
 Github Pages is de hosting voor de website van je project.
-Publish vanuit een workflow, of vanuit een branch 
+* gehost vanuit een repo
+* Publish vanuit een workflow, of vanuit een branch 
 (eerder genoemd, buiten scope v dit praatje)
-standaard is URL gebaseerd op je project en gebruikernaam
-kan HTTPS (heb je anders een cert voor nodig) 
-kan custom domain
+* standaard URL gebaseerd op je project en gebruikernaam
+* kan HTTPS (heb je anders een cert voor nodig) 
+* kan custom domain
 -->
 
 ---
@@ -320,9 +325,9 @@ Dit vereist twee stappen:
 
 <!-- 
 Voor gebruik van een custom domein moet dit domein geregistreerd zijn (niet gratis dus, maar goedkoop)
-Voeg bij de registrar een CNAME record toe dat alleen naar
+* Voeg bij de registrar een CNAME record toe dat alleen naar
 de Github gebruiker verwijst: username.github.io. (let op de punt!)
-In de Pages settings komt het custom domain.
+* In de Pages settings komt het custom domain. zie volgende slide.
 -->
 ---
 ## Github Pages: settings
@@ -342,15 +347,15 @@ Enforce HTTPS: alle http requests worden geredirect naar https.
 * automatisering voor Continuous Integration/Delivery
 * een of meer "jobs" met elk een of meer "steps"
 * getriggerd door "events" in de repo als push, release
-* ...of handmatig
 
 <!-- 
 Github Actions is de workflow automatisering.
-Continuous Integration: het automatisch bouwen en testen van de code bij elke wijziging
+* Continuous Integration: het automatisch bouwen en testen van de code bij elke wijziging
 Continous Delivery: het automatisch bouwen van het eindproduct
 
-Een workflow bestaat uit een of meer jobs (b.v. bouw, test, creeer een zip met de output) en elke job bevat een of meer
+* Elke workflow bestaat uit een of meer jobs (b.v. bouw, test, creeer een zip met de output) en elke job bevat een of meer
 steps (bv bouw = check de code uit, start de bouw, etc).
+* trigger door push, release, ...
 Een job heeft steps in volgorde. Jobs onderling kunnen
 afhankelijkheid hebben OF eventueel parallel draaien.
 Dit kunnen we gaan gebruiken voor het bouwen van de site.
@@ -367,14 +372,16 @@ Dit kunnen we gaan gebruiken voor het bouwen van de site.
 * profit/world domination
 
 <!-- 
-Het idee is: herbouw de Pages site elke keer dat een wijziging
+Het plan is: herbouw de Pages site elke keer dat een wijziging
 naar Git wordt gepushed.
 We gebruiken 2 jobs.
-job 1 zet Hugo op de runner plus de site files en roept dan Hugo
+* push
+* job 1 zet Hugo op de runner plus de site files en roept dan Hugo
 aan om de site te bouwen. Daarna wordt het resultaat 
 omgezet naar het formaat dan Pages verwacht.
-job 2 is volgorde afhankelijk van job 1. Deze pakt het 
+* job 2 is volgorde afhankelijk van job 1. Deze pakt het 
 resultaat van job 1 op en deployt het naar Pages.
+* profit
 
 -->
 
@@ -468,14 +475,11 @@ de site aangepast is.
 * JAMstack: <span class="red">J</span>avascript, <span class="red">A</span>PIs, (statische) <span class="red">M</span>arkup
 
 <!-- 
-Geen server betekent dat we form handling moeten uitbestenden aan een (serverless) functie.
-
-Je kunt Google Forms gebruiken en die embedden, gebruikt alleen 
+* Geen server betekent dat we form handling moeten uitbestenden aan een (serverless) functie.
+* Je kunt Google Forms gebruiken en die embedden, gebruikt alleen 
 zijn eigen styling (iframe). Niet mooi, maar simpel en werkt goed.
-
-kan ook met serverless functie of form dienst: Voorbeelden Netlify Forms, Formspree, Google Apps Script...
-
-Hier komt de term JAM stack vandaan:
+* kan ook met serverless functie of form dienst: Voorbeelden Netlify Forms, Formspree, Google Apps Script...
+* Hier komt de term JAM stack vandaan:
 Javascript, API, Markup als in statische markup.
 -->
 ---
@@ -493,8 +497,8 @@ Dit is gelimiteerd tot 50 submits per maand.
 ---
 ## TIMTOWTDI
 
-* andere site generators
 * andere hosting
+* andere site generators
 * andere form oplossing
 * WYSIWYG editing
 
@@ -502,16 +506,16 @@ Dit is gelimiteerd tot 50 submits per maand.
 There Is More Than One Way To Do It
 
 Deze oplossing is 1 mogelijkheid, maar niet de enige.
-Deploy kan ook naar Cloudflare, Amazon, Google Firebase, ...
+* Deploy kan ook naar Cloudflare, Amazon, Google Firebase, ...
 De Actions workflow moet daar op aangepast worden.
 De eerste job in de workflow blijft dan hetzelfde, alleen de tweede deploy job wordt anders.
 Zie Hugo docs https://gohugo.io/host-and-deploy/ 
-Je zou ook kunnen bouwen met een andere site 
+* Je zou ook kunnen bouwen met een andere site 
 generator, zie axual.github.io/ksml met mkdocs.
-Alternatieve form oplossingen zijn Netlify Forms, Formspree en anderen.
+* Alternatieve form oplossingen zijn Netlify Forms, Formspree en anderen.
 Het basis idee blijft zoals hier beschreven.
 
-In deze presentatie gebruik ik hand edited Markdown, er zijn
+* In deze presentatie gebruik ik hand edited Markdown, er zijn
 ook WYSIWYG editors, zie de Hugo documentatie.
 Vb. Sveltium: Git based frontend voor Hugo, save is git push
 
