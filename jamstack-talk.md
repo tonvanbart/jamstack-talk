@@ -39,6 +39,9 @@ style: |
 <!-- 
 Waar gaat dit over: hosting van een plain 
 html website op Github, en site generatie met Hugo dmv een Github workflow on demand,.
+
+Dit is een vrij hardcore technisch verhaal!
+
 Opzet berust op 3 pijlers: Hugo, Git, en Github: pages en actions. Over elk valt heel veel te vertellen maar daar is niet genoeg tijd voor.
 Dit is een vrij hardcore technisch verhaal!
 
