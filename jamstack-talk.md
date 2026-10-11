@@ -525,8 +525,9 @@ Vb. Sveltium: Git based frontend voor Hugo, save is git push
 
 # Bedankt!
 
-[github.com/tonvanbart/hugo-demo](github.com/tonvanbart/hugo-demo)
-[hugo-demo.vanbart.org](hugo-demo.vanbart.org)
+[github.com/tonvanbart/hugo-demo](https://github.com/tonvanbart/hugo-demo)
+
+[hugo-demo.vanbart.org](https://hugo-demo.vanbart.org)
 
 <!-- 
 Bedankt voor het luisteren. Een compleet werkend voorbeeld is te
